@@ -6,3 +6,8 @@ gem 'sinatra', require: 'sinatra/base'
 gem 'rack'
 gem 'rack-test'
 
+=begin
+this is a specific library of this
+announcement application
+=end
+gem 'twitter'

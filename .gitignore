@@ -2,3 +2,5 @@ Gemfile.lock
 .*.sw*
 
 
+resources
+public

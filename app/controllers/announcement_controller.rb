@@ -3,7 +3,8 @@
 class AnnouncementController < ApplicationController
   get '/' do
     # my index at announcement application
-    'announcement_controller.rb'
+    @title = "announcement"
+    erb :"announcement/index"
   end
 
   get '/:announcement' do

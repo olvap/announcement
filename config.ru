@@ -1,6 +1,7 @@
 # config.ru
 require 'sinatra/base'
 
+
 # pull in the helpers and controllers
 Dir.glob('./app/helpers/*.rb').each {|file|  require file}
 require './app/controllers/application_controller.rb'

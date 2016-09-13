@@ -3,6 +3,8 @@
 class ApplicationController < Sinatra::Base
   helpers ApplicationHelper
 
+  set :public_folder, 'public'
+
   # Set folder templates to ../views, but make the path absolute
   set :views, File.expand_path('../../views', __FILE__)
 
