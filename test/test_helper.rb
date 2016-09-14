@@ -1,4 +1,4 @@
-# ENV['RACK_ENV'] = 'test'
+ENV['RACK_ENV'] = 'test'
 
 require 'sinatra'
 
@@ -10,6 +10,7 @@ Dir.glob('./app/controllers/*.rb').each {|file|  require file}
 require 'minitest/autorun'
 require 'minitest/pride'  
 require 'minitest/benchmark'
+
 require 'rack/test'  
 
 

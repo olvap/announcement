@@ -8,8 +8,10 @@ class AnnouncementControllerTest < Minitest::Test
   end
 
   def test_index_announcement
+    # testing the varibles included into the 
+    # body in the main page
     get '/'
-    assert_equal 'announcement_controller.rb', last_response.body
+    assert_includes last_response.body, 'announcement'
   end
 
   def test_announcement_one
