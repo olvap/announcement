@@ -120,7 +120,7 @@
 					$toggles
 						.removeAttr('href')
 						.css('cursor', 'pointer')
-						.on('click', function(event) {
+       			.on('click', function(event) {
 
 							event.preventDefault();
 							event.stopPropagation();
@@ -130,6 +130,7 @@
 						});
 
 			});
+      
 
 			// Global events.
 				$body
@@ -185,7 +186,6 @@
 								event.stopPropagation();
 
 								window.location.href = href;
-
 							});
 
 				});
@@ -275,7 +275,7 @@
 					popupLoaderText: '',
 					popupSpeed: 300,
 					popupWidth: 150,
-					selector: '.thumb > a.image',
+					selector: false,
 					usePopupCaption: true,
 					usePopupCloser: true,
 					usePopupDefaultStyling: false,

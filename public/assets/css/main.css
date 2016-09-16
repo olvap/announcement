@@ -1568,21 +1568,75 @@
 				width: 100%;
 			}
 
+      video {
+        top: 0;
+        height: 100%;
+        z-index: -100;
+      }
+
+			#main .thumb > .information {
+        width: 100%;
+        background: #000;
+        opacity: 0.5;
+				bottom: 0em;
+        padding-left: 20px;
+        padding-right: 10px;
+				position: absolute;
+				z-index: 1;
+
+				font-size: 0.8em;
+				margin: 0;
+
+			}
+
+			#main .thumb h2, #main .thumb h3, #main .thumb p {
+				margin: 0;
+        font-weight: bold;
+      }
+
+      #main .thumb h3 {
+        position: absolute;
+        right: 1em !important;
+      }
+
 			#main .thumb > h2 {
 				-moz-pointer-events: none;
 				-webkit-pointer-events: none;
 				-ms-pointer-events: none;
 				pointer-events: none;
-				bottom: 1.875em;
+
+				bottom: 4em;
 				font-size: 0.8em;
-				left: 2.1875em;
+				left: 1em;
+				margin: 0;
+				position: absolute;
+				z-index: 1;
+			}
+
+			#main .thumb > h3 {
+				-moz-pointer-events: none;
+				-webkit-pointer-events: none;
+				-ms-pointer-events: none;
+				pointer-events: none;
+				bottom: 6em;
+				font-size: 0.8em;
+				right: 1.8em;
 				margin: 0;
 				position: absolute;
 				z-index: 1;
 			}
 
 			#main .thumb > p {
-				display: none;
+				-moz-pointer-events: none;
+				-webkit-pointer-events: none;
+				-ms-pointer-events: none;
+				pointer-events: none;
+				bottom: 0.5em;
+				font-size: 0.8em;
+				left: 1em;
+				margin: 0;
+				position: absolute;
+				z-index: 1;
 			}
 
 		#main:after {

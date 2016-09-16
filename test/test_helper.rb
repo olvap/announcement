@@ -11,6 +11,5 @@ require 'minitest/autorun'
 require 'minitest/pride'  
 require 'minitest/benchmark'
 
-require 'rack/test'  
-
+require 'rack/test'
 
