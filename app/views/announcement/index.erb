@@ -30,9 +30,9 @@
           <% @tweet.each do |t| %>
             <article class="thumb">
               <% if t[:media].class == Hash %>
-                <a href="/<%= t[:title].downcase %>" class="image">
+                <a href="/<%= t[:id] %>" class="image">
                 <% if t[:media][:content_type] == "video/mp4" %>
-                   <video controls autoplay loop>
+                   <video controls autoplay muted loop>
                       <source src="<%= t[:media][:url] %>" type="<%= t[:media][:content_type] %>">
                       Your browser does not support the video tag.
                    </video>
@@ -43,9 +43,15 @@
             <% end %>
             <span class="information">
               <h3><%= t[:price] %></h3>
-              <a href="/<%= t[:title].downcase %>">
+                <p class="location"><%= t[:author_location] %></p>
+                <a href="/<%= t[:title].downcase %>">
                 <h2><%= t[:title] %></h2></a>
-              <p><%= t[:author] %> <%t[:]%></p></span>
+                <p><a 
+                   href="<%= t[:author_url]%>" 
+                   onclick="window.open(this.href); return false;">
+                   <%= t[:author] %></a>
+                </p>
+            </span>
             </article>
           <% end %>
 

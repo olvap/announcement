@@ -13,6 +13,7 @@ class AnnouncementController < ApplicationController
 
   get '/:announcement' do
     # this is information about the announcement
-    "ok #{@params[:announcement]}"
+    @title = @params[:announcement]
+    erb :"announcement/announcement"
   end
 end

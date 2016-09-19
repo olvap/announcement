@@ -1599,6 +1599,10 @@
         right: 1em !important;
       }
 
+      #main p.location {
+        right: 1em;
+      }
+
 			#main .thumb > h2 {
 				-moz-pointer-events: none;
 				-webkit-pointer-events: none;

@@ -52,8 +52,11 @@ class Tweet
       image = t.text.split(TwitterConfig::HASH_TAG)[1]
 
       (@tweets ||= []).push(
+          :id => t.id,
+          :author_id => t.user.id,
           :author => t.user.screen_name, 
-          :autor_url => t.user.url, 
+          :author_url => t.user.url, 
+          :author_location => t.user.location, 
           :title => title, 
           :price => price, 
           :media => get_media(t)
