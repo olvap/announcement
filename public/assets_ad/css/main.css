@@ -2705,6 +2705,7 @@
 		header.major.special {
 			text-align: center;
 		}
+    
 
 			header.major.special h2:after {
 				margin-left: auto;
@@ -3569,6 +3570,26 @@
 		#main dl dt {
 			color: #636363;
 		}
+
+      #main .main dt img {
+       margin-top: -30px;
+       border-radius: 0.25em;
+        border: 3px #ffffff solid;
+        width: 100px;
+        height: 100px;
+      }
+     #main .main dt {
+      width: 140px;
+     }
+
+     #main .main dd  {
+       margin-top: 170px;
+       vertical-align: bottom;
+     }
+
+     #main .main dd  a {
+       bottom: 1.5em;
+     }
 
 		#main header.major h2:after {
 			background-color: #dddddd;

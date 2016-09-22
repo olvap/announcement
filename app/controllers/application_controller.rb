@@ -10,6 +10,11 @@ class ApplicationController < Sinatra::Base
 
   # don't enable logging when running test
   configure :production, :development do
-    enable :logging
+    enable :sessions, :logging
+
+    use OmniAuth::Builder do
+      provider :twitter, TwitterConfig::CONSUMER_KEY, TwitterConfig::CONSUMER_SECRET
+    end    
   end
 end
+

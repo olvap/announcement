@@ -3,9 +3,9 @@ require 'twitter'
 
 module TwitterConfig
   HASH_TAG             = "#DvwbW5"
-  CONSUMER_KEY         = "GDV5cCctzhsysUNIehVKN7xa9"
-  CONSUMER_SECRET      = "t6qN8lIQeUQvicdeYhYdXtdNS8JcgDce9Ae50rzovIQPxJh3wu"
-  ACCESS_TOKEN         = "135599641-HvRiyaM5n0IBZK3JOAUoxQLgDv8VaXmzHNDw2OIz"
-  ACCESS_TOKEN_SECRET  = "ceuvp7N5KOLuappJ6ujzErlPmM0sFCAYpBLH5vvvQXMLC"
+  CONSUMER_KEY         = "1xVQOfhP4eeuwDagASXSBqEbP"
+  CONSUMER_SECRET      = "T7Fp4HFNAoTJZCBajS3thpLrQzwZtb0fB6pgPOCANczLjEgKiN"
+  ACCESS_TOKEN         = "135599641-fatv1Mg1tpAmtbkVBeLJGJ5S78VZOzRvYGFrhsVt"
+  ACCESS_TOKEN_SECRET  = "qslzkmeo1PZk2AjImfzgYjwNTnXdV29wIjsTCf6DAicf8"
 end
 

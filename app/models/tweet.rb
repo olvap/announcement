@@ -10,56 +10,53 @@ class Tweet
     get_tweets
   end
 
+  def save_announcement(title, price, phone, message, media)
+    tweet = "#{title}\n#{phone}\n#{message}\n#{TwitterConfig::HASH_TAG}\n"
+    @client.update_with_media(tweet, media)
+  end
+
   def first
     @tweets.first
   end
 
   def get_tweet n
-    @tweets[n]
+    @tweets.find { |t| t[:id] == n }
   end
 
   def collect
     @tweets
   end
 
+  def size
+    @tweets.count
+  end
+
   private
-  @tweets
-
-  def get_media_resource media
-    if media.class == Twitter::Media::Video 
-      [:content_type => media.video_info[:variants].first.attrs[:content_type], :url => media.video_info[:variants].first.attrs[:url]]
-    elsif media.class == Twitter::Media::Photo
-      [:content_type => "", :url => media.media_url]
-    elsif media.class == Twitter::Media::AnimatedGif
-      [:content_type => "", :url => ""]
-    else
-      [:content_type => "", :url => ""]
-    end
-  end
-
-  def get_media tweet
-    @media = []
-    tweet.media.each do |m|
-      @media = get_media_resource(m).first
-    end
-    @media
-  end
 
   def get_tweets
     @client.search("#{TwitterConfig::HASH_TAG} -rt").collect do |t|
       title = t.text.split("\n")[0]
-      price = t.text.split("\n")[1]
-      image = t.text.split(TwitterConfig::HASH_TAG)[1]
+      content  = t.text.split("\n")
+      # image = t.text.split(TwitterConfig::HASH_TAG)[1]
 
       (@tweets ||= []).push(
           :id => t.id,
+
           :author_id => t.user.id,
-          :author => t.user.screen_name, 
+          :author_verified => t.user.verified,
+          :author => t.user.screen_name,
+          :author_pic => t.user.profile_image_url,
+          :author_name => t.user.name, 
           :author_url => t.user.url, 
+          :author_description => t.user.description, 
           :author_location => t.user.location, 
+          :author_created_at => t.user.created_at,
+          :author_banner_url => t.user.profile_banner_url,
+
           :title => title, 
-          :price => price, 
-          :media => get_media(t)
+          :content => content, 
+          :media => t.media,
+          :value => t.user.class
       )
     end
   end

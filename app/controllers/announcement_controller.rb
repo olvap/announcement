@@ -1,19 +1,40 @@
 # announcement_controller.rb
 
+require_relative '../../config/twitter'
+require_relative '../models/tweet.rb'
+
 class AnnouncementController < ApplicationController
+
+  post '/update' do
+    @t = Tweet.new
+    # filename = @params[:media][:filename]
+    # media = @params[:media][:tempfile].path
+    media = @params[:media][:tempfile].path
+    @t.save_announcement(@params[:title], @params[:price], @params[:phone], @params[:message], File.new(media))
+  end
+
   get '/' do
     # my index at announcement application
     @title = "announcement"
-
-    ads = TweetController.new
-    @tweet = ads.get_tweets
-
+    ads = Tweet.new
+    @tweet = ads.collect
     erb :"announcement/index"
   end
 
-  get '/:announcement' do
+  get '/t/?:announcement?' do
     # this is information about the announcement
-    @title = @params[:announcement]
+    # id = @params[:announcement]
+
+    ads = Tweet.new
+    @tweet = ads.get_tweet @params[:announcement].to_i
+
     erb :"announcement/announcement"
   end
+
+  get '/auth/twitter/callback' do
+  end
+
+  get '/auth/failure' do
+  end
+
 end

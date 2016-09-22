@@ -6,6 +6,7 @@ require 'sinatra'
 Dir.glob('./app/helpers/*.rb').each {|file|  require file}
 require './app/controllers/application_controller.rb'
 Dir.glob('./app/controllers/*.rb').each {|file|  require file}
+Dir.glob('./app/models/*.rb').each {|file|  require file}
 
 require 'minitest/autorun'
 require 'minitest/pride'  

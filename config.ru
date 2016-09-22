@@ -1,5 +1,6 @@
 # config.ru
-require 'sinatra/base'
+require 'sinatra'
+require 'omniauth-twitter'
 
 
 # pull in the helpers and controllers
@@ -9,5 +10,6 @@ Dir.glob('./app/controllers/*.rb').each {|file|  require file}
 
 # map the controller to routes
 # map('/') { run ApplicationController }
-map('/') { run AnnouncementController }
 
+map('/t/:announcement') { run AnnouncementController }
+map('/') { run AnnouncementController }
