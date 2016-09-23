@@ -37,6 +37,7 @@ class Tweet
     @client.search("#{TwitterConfig::HASH_TAG} -rt").collect do |t|
       title = t.text.split("\n")[0]
       content  = t.text.split("\n")
+   
       # image = t.text.split(TwitterConfig::HASH_TAG)[1]
 
       (@tweets ||= []).push(

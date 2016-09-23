@@ -1,7 +1,16 @@
 # config.ru
+
 require 'sinatra'
+require 'sinatra/config_file'
+
 require 'omniauth-twitter'
 
+=begin
+Database configuration section
+Sqlite engine
+ads name
+=end
+require 'sinatra/activerecord'
 
 # pull in the helpers and controllers
 Dir.glob('./app/helpers/*.rb').each {|file|  require file}
@@ -13,3 +22,8 @@ Dir.glob('./app/controllers/*.rb').each {|file|  require file}
 
 map('/t/:announcement') { run AnnouncementController }
 map('/') { run AnnouncementController }
+
+map('/login') { run TwitterController }
+map('/auth/failure') { run TwitterController }
+map('/callback') { run TwitterController }
+

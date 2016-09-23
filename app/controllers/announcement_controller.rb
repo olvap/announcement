@@ -31,10 +31,4 @@ class AnnouncementController < ApplicationController
     erb :"announcement/announcement"
   end
 
-  get '/auth/twitter/callback' do
-  end
-
-  get '/auth/failure' do
-  end
-
 end

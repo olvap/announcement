@@ -1,6 +1,12 @@
 # application_controller.rb
-
 class ApplicationController < Sinatra::Base
+
+  register Sinatra::ActiveRecordExtension
+
+  register Sinatra::ConfigFile
+  config_file '../../config/config.yml'
+  set :environment, :development
+
   helpers ApplicationHelper
 
   set :public_folder, 'public'
@@ -10,11 +16,15 @@ class ApplicationController < Sinatra::Base
 
   # don't enable logging when running test
   configure :production, :development do
-    enable :sessions, :logging
+    enable :logging
 
+    set :sessions, true
+    enable :sessions
+
+    use Rack::Session::Cookie, secret: settings.session_secret
     use OmniAuth::Builder do
       provider :twitter, TwitterConfig::CONSUMER_KEY, TwitterConfig::CONSUMER_SECRET
-    end    
+    end
   end
 end
 

@@ -5,3 +5,12 @@ Rake::TestTask.new do |t|
   t.pattern = "test/**/*_test.rb"
 
 end
+
+require 'sinatra/activerecord/rake'
+
+namespace :db do
+  task :load_config do
+    require './config/initialize-database' 
+  end
+end
+
