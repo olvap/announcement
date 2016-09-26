@@ -2,7 +2,6 @@
 
 require 'sinatra'
 require 'sinatra/config_file'
-
 require 'omniauth-twitter'
 
 =begin

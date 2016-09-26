@@ -1,13 +1,15 @@
 # application_controller.rb
 class ApplicationController < Sinatra::Base
 
-  register Sinatra::ActiveRecordExtension
-
   register Sinatra::ConfigFile
   config_file '../../config/config.yml'
   set :environment, :development
 
   helpers ApplicationHelper
+
+  register Sinatra::ActiveRecordExtension
+  set :database, {adapter: "sqlite3", database: "ads.sqlite3"}
+
 
   set :public_folder, 'public'
 

@@ -45,7 +45,7 @@ class Tweet
 
           :author_id => t.user.id,
           :author_verified => t.user.verified,
-          :author => t.user.screen_name,
+          :username => t.user.screen_name,
           :author_pic => t.user.profile_image_url,
           :author_name => t.user.name, 
           :author_url => t.user.url, 

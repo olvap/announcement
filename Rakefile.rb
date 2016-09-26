@@ -10,7 +10,8 @@ require 'sinatra/activerecord/rake'
 
 namespace :db do
   task :load_config do
-    require './config/initialize-database' 
+    require_relative "config/initialize-database"
   end
 end
+
 

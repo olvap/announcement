@@ -2,7 +2,6 @@
 development:
   adapter: 'sqlite3'
   database: 'db/ads.sqlite3'
-
   status: 'current'
   twitter:
     hash_tag: '#DvwbW5'
@@ -13,7 +12,6 @@ development:
 test:
   adapter: 'sqlite3'
   database: 'db/ads.sqlite3'
-
   status: 'none'
   twitter:
     hash_tag: '#DvwbW5'
@@ -22,9 +20,8 @@ test:
     access_token: '135599641-fatv1Mg1tpAmtbkVBeLJGJ5S78VZOzRvYGFrhsVt'
     access_token_secret: 'qslzkmeo1PZk2AjImfzgYjwNTnXdV29wIjsTCf6DAicf8'
 production:
-  adapter: 'pg'
+  adapter: 'sqlite3'
   database: 'ads'
-
   status: 'none'
   twitter:
     hash_tag: '#trucks'

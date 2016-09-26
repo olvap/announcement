@@ -25,7 +25,7 @@ gem 'omniauth-twitter'
 
 group :development do
   gem 'shotgun'
-  gem 'sqlite3'
+  gem 'mysqli'
 end
 
 group :production do
