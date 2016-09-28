@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-  <title><%= @title %> </title>
+    <title><%= @title %> (<%= @tweets_qty %>) </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -48,7 +48,7 @@
                       <source src="<%= url %>" type="<%= content_type %>">
                       Your browser does not support the video tag.
                    </video>
-                <% elsif %>
+                <% elsif media.class == Twitter::Media::Photo %>
                    <% url = get_image_url(media) %>
                    <img src="<%= url %>" alt="<%= t["title"] %>" />
                  <% else %>

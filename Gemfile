@@ -1,5 +1,5 @@
 source 'http://rubygems.org'
-ruby '2.3.1'
+ruby '2.3.2'
 
 # framework
 gem 'sinatra', require: 'sinatra/base'
@@ -25,7 +25,7 @@ gem 'omniauth-twitter'
 
 group :development do
   gem 'shotgun'
-  gem 'mysqli'
+  gem 'mysql2'
 end
 
 group :production do

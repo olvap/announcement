@@ -1,12 +1,11 @@
 # config.ru
-
 require 'sinatra'
-require 'sinatra/config_file'
 require 'omniauth-twitter'
+require 'twitter'
 
 =begin
 Database configuration section
-Sqlite engine
+mysql2 engine
 ads name
 =end
 require 'sinatra/activerecord'

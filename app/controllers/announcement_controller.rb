@@ -1,6 +1,4 @@
 # announcement_controller.rb
-
-require_relative '../../config/twitter'
 require_relative '../models/tweet.rb'
 
 class AnnouncementController < ApplicationController
@@ -18,6 +16,8 @@ class AnnouncementController < ApplicationController
     @title = "announcement"
     ads = Tweet.new
     @tweet = ads.collect
+
+    @tweets_qty = ads.size
     erb :"announcement/index"
   end
 

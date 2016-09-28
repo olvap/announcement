@@ -1,14 +1,8 @@
 # twitter_controller.rb
 
-require_relative '../../config/twitter'
 require_relative '../models/tweet.rb'
 
 class TwitterController < ApplicationController
-  configure do
-    enable :sessions
-    enable :session
-  end
-
   helpers do
     def current_user 
       !session[:iud].nil?
@@ -21,8 +15,13 @@ class TwitterController < ApplicationController
   end
 
   get '/auth/twitter/callback' do
+  session[:authed] = true
+  session[:username] = request.env['omniauth.auth']['info']['nickname']
+=begin
     session[:uid] = env['omniauth.auth']['uid']
     env['omniauth.auth']
+=end
+  request.env['omniauth.auth'].to_s << "\n\n"
   end
 
   get '/auth/failure' do
