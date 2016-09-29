@@ -10,9 +10,6 @@ ActiveRecord::Base.establish_connection(
   :database => Database::NAME
 )
 
-class User < ActiveRecord::Base
-end
-
 class App < Sinatra::Base
 end
 

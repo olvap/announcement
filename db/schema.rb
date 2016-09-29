@@ -12,19 +12,18 @@
 
 ActiveRecord::Schema.define(version: 20160923183520) do
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "password_digest"
-    t.string "username"
     t.string "email"
-    t.string "twitter_id"
-    t.string "twitter_username"
-    t.string "twitter_name"
-    t.string "twitter_description"
-    t.string "twitter_pic"
-    t.string "twitter_location"
-    t.string "twitter_url"
-    t.string "twitter_created_at"
-    t.text   "description",         limit: 65535
+    t.string "uid"
+    t.string "name"
+    t.string "nickname"
+    t.string "location"
+    t.string "image_url"
+    t.string "website"
+    t.string "url"
+    t.text   "description",        limit: 65535
+    t.date   "twitter_created_at"
     t.string "account_type"
     t.date   "update_at"
   end
