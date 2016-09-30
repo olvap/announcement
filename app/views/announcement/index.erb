@@ -13,6 +13,9 @@
     <div id="top-menu">
   <nav>
     <ul>
+      <% if current_user %>
+        <li class="user"><%= get_user(session[:uid]).name %></li>
+      <% end %>
       <li class="login"><a href="/login">Ingresar</a></li>
       <li class="register"><a href="/register">Registrarse</a></li>
       <li><a href="#footer" class="icon fa-info-circle">Publicar Aviso</a></li>

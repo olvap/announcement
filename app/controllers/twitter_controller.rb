@@ -3,12 +3,6 @@
 require_relative '../models/tweet.rb'
 
 class TwitterController < ApplicationController
-  helpers do
-    def current_user 
-      !session[:iud].nil?
-    end
-  end
-
   before do
     pass if request.path_info =~ /^\/auth\//
     redirect to('/auth/twitter') unless current_user
@@ -44,17 +38,19 @@ class TwitterController < ApplicationController
     u.website = urls['Website']
     u.url = urls['Twitter']
     u.description = info.description
-    (u.save)? "ok" : "fail"
-  
+    u.save
 
-
-    # redirect to 'http://127.0.0.1:9393'
+    redirect to 'http://127.0.0.1:9393'
   end
 
   get '/auth/failure' do
   end
 
   get '/login' do
+    redirect to '/auth/twitter'
+  end
+
+  get '' do
     redirect to '/auth/twitter'
   end
 
