@@ -12,20 +12,20 @@
 
 ActiveRecord::Schema.define(version: 20160923183520) do
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "password_digest"
-    t.string "username"
     t.string "email"
     t.string "uid"
     t.string "name"
     t.string "nickname"
-    t.string "token"
-    t.string "secret"
-    t.string "description"
-    t.string "pic"
+
     t.string "location"
+    t.string "image_url"
+    t.string "website"
     t.string "url"
-    t.date   "created_at"
+    t.text   "description",        limit: 65535
+    t.date   "twitter_created_at"
+    
     t.string "account_type"
     t.date   "update_at"
   end

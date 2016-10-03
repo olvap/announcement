@@ -8,7 +8,7 @@ class TweetTest < Minitest::Test
   end
 
   def test_first_tweet
-    assert_equal @t.first[:content], ["Probando Postea", "4562389", "Funciona", "#DvwbW5"]
+    assert_equal @t.first[:content], ["RT @gsgerman: 1º line", "2º line", "3º line", "#DvwbW5 https://t.co/1LirwvHb4W"]
   end
 
   def test_size_tweet

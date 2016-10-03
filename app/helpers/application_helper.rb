@@ -15,3 +15,4 @@ module ApplicationHelper
     media.attrs[:media_url]
   end
 end
+

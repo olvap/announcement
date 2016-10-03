@@ -15,7 +15,7 @@ class AnnouncementControllerTest < Minitest::Test
   end
 
   def test_announcement_one
-    get '/t/777927226788614145'
-    assert_includes last_response.body, 'Apple - iPhone 7 32GB - Rose Gold'
+    get '/t/780438822077227008'
+    assert_includes last_response.body, 'RT @gsgerman: 1º line'
   end
 end 

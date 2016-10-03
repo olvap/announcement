@@ -13,6 +13,20 @@
     <div id="top-menu">
   <nav>
     <ul>
+      <% if current_user %>
+        <% user = get_user(session[:uid]) %>
+        <li class="user">
+          <a href="#"><%= user.nickname %>
+          <span class="caret"></span></a>
+        		<div>
+              <ul>
+                <li><a href="#footer">Publicar un anuncio</a></li>
+                <li><a href="/data.html">Mi Cuenta</a></li>
+                <li><a href="<%= user.url %>" class="login"><%= user.name %>r</a></li>
+              </ul>
+      			</div>
+        </li>
+      <% end %>
       <li class="login"><a href="/login">Ingresar</a></li>
       <li class="register"><a href="/register">Registrarse</a></li>
       <li><a href="#footer" class="icon fa-info-circle">Publicar Aviso</a></li>

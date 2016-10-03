@@ -1,8 +1,7 @@
 # application_controller.rb
-require_relative '../../config/settings'
 
 class ApplicationController < Sinatra::Base
-  helpers ApplicationHelper
+  helpers ApplicationHelper, TwitterHelper
 
   set :public_folder, 'public'
 
@@ -15,6 +14,7 @@ class ApplicationController < Sinatra::Base
     set :sessions, true
     enable :sessions
     set :session_secret, General::SESSION_SECRET
+
     use OmniAuth::Builder do
       provider :twitter, TwitterConfig::CONSUMER_KEY, TwitterConfig::CONSUMER_SECRET
     end
