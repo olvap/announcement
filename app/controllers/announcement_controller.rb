@@ -1,5 +1,4 @@
 # announcement_controller.rb
-require_relative '../models/tweet.rb'
 
 class AnnouncementController < ApplicationController
 
@@ -12,10 +11,9 @@ class AnnouncementController < ApplicationController
   get '/' do
     # my index at announcement application
     @title = "announcement"
-    ads = Tweet.new
-    @tweet = ads.collect
+    @ads = Ad.all
 
-    @tweets_qty = ads.size
+    @tweets_qty = @ads.size
     erb :"announcement/index"
   end
 

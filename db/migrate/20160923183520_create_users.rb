@@ -1,22 +1,22 @@
 class CreateUsers < ActiveRecord::Migration
   def change
     create_table(:users, :options => 'DEFAULT CHARSET=utf8') do |t|
-      t.string :password_digest
-      t.string :email
+      t.column :password_digest, :string
+      t.column :email, :string
 
-      t.string :uid 
-      t.string :name
-      t.string :nickname
-      t.string :location
-      t.string :image_url 
-      t.string :website
-      t.string :url
+      t.column :uid, :string
+      t.column :name, :string
+      t.column :nickname, :string
+      t.column :location, :string
+      t.column :image_url , :string
+      t.column :website, :string
+      t.column :url, :string
 
-      t.text :description
-      t.date :twitter_created_at
+      t.column :description, :text
+      t.column :twitter_created_at, :datetime
 
-      t.string :account_type 
-      t.date :update_at
+      t.column :account_type, :string
+      t.column :update_at, :datetime
     end
   end
 

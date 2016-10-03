@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160923183520) do
+ActiveRecord::Schema.define(version: 20161003100533) do
+
+  create_table "ads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "tid"
+    t.string   "uid"
+    t.string   "title"
+    t.string   "price"
+    t.string   "phone"
+    t.text     "message",    limit: 65535
+    t.string   "video"
+    t.string   "image"
+    t.text     "data",       limit: 65535
+    t.boolean  "enabled"
+    t.datetime "updated_at"
+    t.datetime "created_at"
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "password_digest"
@@ -18,14 +33,12 @@ ActiveRecord::Schema.define(version: 20160923183520) do
     t.string "uid"
     t.string "name"
     t.string "nickname"
-
     t.string "location"
     t.string "image_url"
     t.string "website"
     t.string "url"
     t.text   "description",        limit: 65535
     t.date   "twitter_created_at"
-    
     t.string "account_type"
     t.date   "update_at"
   end

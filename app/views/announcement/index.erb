@@ -20,9 +20,9 @@
           <span class="caret"></span></a>
         		<div>
               <ul>
-                <li><a href="#footer">Publicar un anuncio</a></li>
+                <li><a href="#footer">Publicar</a></li>
                 <li><a href="/data.html">Mi Cuenta</a></li>
-                <li><a href="<%= user.url %>" class="login"><%= user.name %>r</a></li>
+                <li><a href="<%= user.url %>" class="login"><%= user.name %></a></li>
               </ul>
       			</div>
         </li>
@@ -48,46 +48,37 @@
 				<!-- Main -->
         <div id="main">
 
-          <% @tweet.each do |t| %>
+          <% @ads.each do |t| %>
             <article class="thumb">
-              <% if !t[:media].empty? %>
-                <a href="/t/<%= t[:id] %>" class="image">
-                <% media = t[:media].first %>
-                <% if media.class == Twitter::Media::Video %>
-
-                  <% url = get_video_url(media) %>
-                  <% content_type = get_video_content_type(media) %>
+              <% if !t.video.empty? %>
+                <a href="/t/<%= t.tid %>" class="image">
+                  <% # content_type = get_video_content_type(media) %>
 
                    <video controls autoplay muted loop>
-                      <source src="<%= url %>" type="<%= content_type %>">
+                      <source src="<%= t.video %>" type="<%= content_type %>">
                       Your browser does not support the video tag.
                    </video>
-                <% elsif media.class == Twitter::Media::Photo %>
-                   <% url = get_image_url(media) %>
-                   <img src="<%= url %>" alt="<%= t["title"] %>" />
+                <% elsif !t.image.empty? %>
+                   <% # url = get_image_url(media) %>
+                   <img src="<%= t.image %>" alt="<%= t.title %>" />
                  <% else %>
-                   <img src="images/empty.png" alt="<%= t["title"] %>" />
+                   <img src="images/empty.png" alt="<%= t.title %>" />
                  <% end %>
                 </a>
-               <% else %>
-                <a href="/<%= t[:id] %>" class="image">
-                  <img src="images/empty.png" alt="<%= t["title"] %>" />
-                </a>
-            <% end %>
+
             <span class="information">
-              <h3><%= t[:price] %></h3>
-                <p class="location"><%= t[:author_location] %></p>
-                <a href="/t/<%= t[:id] %>">
-                <h2><%= t[:title] %></h2></a>
+              <h3><%= t.price %></h3>
+                <p class="location"><%= t.author_location %></p>
+                <a href="/t/<%= t.id %>">
+                <h2><%= t.title %></h2></a>
                 <p><a 
-                   href="<%= t[:author_url]%>" 
+                   href="<%= t.author_url%>" 
                    onclick="window.open(this.href); return false;">
-                   <%= t[:username] %></a> 
+                   <%= t.username %></a> 
                 </p>
             </span>
             </article>
           <% end %>
-
 					</div>
 
 				<!-- Footer -->

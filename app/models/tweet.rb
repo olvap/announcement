@@ -50,9 +50,10 @@ data for testing client
     @client.search("#{TwitterConfig::HASH_TAG}").collect do |t|
       title = t.text.split("\n")[0]
       content  = t.text.split("\n")
-   
-      # image = t.text.split(TwitterConfig::HASH_TAG)[1]
+      price =  t.text.split("\n")[1]
+      phone =  t.text.split("\n")[2]
 
+      # image = t.text.split(TwitterConfig::HASH_TAG)[1]
       (@tweets ||= []).push(
           :id => t.id,
           :author_id => t.user.id,
@@ -65,7 +66,9 @@ data for testing client
           :author_location => t.user.location, 
           :author_created_at => t.user.created_at,
           :author_banner_url => t.user.profile_banner_url,
-          :title => title, 
+          :title => title,
+          :price => price,
+          :phone => phone,
           :content => content, 
           :media => t.media,
           :value => t.user.class

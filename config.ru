@@ -30,3 +30,5 @@ map('/login') { run TwitterController }
 map('/auth/failure') { run TwitterController }
 map('/callback') { run TwitterController }
 
+map('/admin/') {run AdminController }
+
