@@ -5,17 +5,18 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :email
 
-      t.string :twitter_id
-      t.string :twitter_username
-      t.string :twitter_name
-      t.string :twitter_description
+      t.string :uid
+      t.string :name
+      t.string :nickname
+      t.string :token
+      t.string :secret
+      t.string :description
       
-      t.string :twitter_pic
-      t.string :twitter_location
-      t.string :twitter_url
-      t.string :twitter_created_at
+      t.string :pic
+      t.string :location
+      t.string :url
+      t.date :created_at
 
-      t.text :description
       t.string :account_type 
       t.date :update_at
     end

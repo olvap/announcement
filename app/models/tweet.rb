@@ -11,7 +11,6 @@ data for testing client
     end
 
     @client.search("#DvwbW5 -rt").collect
-
 =end
 
   def initialize
