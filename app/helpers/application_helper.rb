@@ -3,6 +3,10 @@
 module ApplicationHelper
   VERSION = 0.1
 
+  def clean_string s
+    s.gsub!(/[\"\[\]]/, '')
+  end
+
   def get_video_content_type media
     media.video_info.variants.first.attrs[:content_type]
   end

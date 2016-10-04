@@ -20,8 +20,9 @@ class AnnouncementController < ApplicationController
   get '/t/?:announcement?' do
     # this is information about the announcement
     # id = @params[:announcement]
-    ads = Tweet.new
-    @tweet = ads.get_tweet @params[:announcement].to_i
+    @tweet = Ad.find_by(tid: @params[:announcement])
+    @user = User.find_by(uid: @tweet.uid )
+
     erb :"announcement/announcement"
   end
 

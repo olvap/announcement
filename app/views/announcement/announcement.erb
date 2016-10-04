@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-    <title><%= @tweet[:title].upcase %> - <%= @tweet[:author_name] %></title>
+    <title><%= @tweet[:title].upcase %> - <%= @user.name %></title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="/assets_ad/js/ie/html5shiv.js"></script><![endif]-->
@@ -15,7 +15,7 @@
     <!--[if lte IE 8]><link rel="stylesheet" href="/assets_ad/css/ie8.css" /><![endif]-->
     <style>
       #main {
-        background-image: url(<%= @tweet[:author_banner_url] %>);
+        background-image: url(<%= @user.banner_url %>);
           background-repeat: repeat-x;
         
         }
@@ -40,48 +40,36 @@
 
               <dl class="alt">
                 <dt>
-                  <img src="<%= @tweet[:author_pic] %>" alt="<%= @tweet[:author] %>" />
+                  <img src="<%= @user.pic %>" alt="<%= @user.name %>" />
                 </dt>
                 <dd>
                 <a 
-                 href="<%= @tweet[:author_url]%>" 
+                 href="<%= @user.url%>" 
                  onclick="window.open(this.href); return false;">
-                 <%= @tweet[:author_name] %>
-                  <p><%= @tweet[:username] %></p>
+                 <%= @user.name %>
+                  <p><%= @user.nickname %></p>
                   </a></dd>
               </dl>
               </div>
-
                 <h1><%= @tweet[:title] %></h1>
-                <p><%= @tweet[:author_location] %></p> 
-                <p><% @tweet[:content].each do |line| %>
-                <%= line %><br />
-              <% end %></p>
-
+                <p><%= @user.location %></p> 
+                <p><%= @tweet.phone %> (<%= @tweet.price %>)</p>
                 <div class="main-media">
-                <% @tweet[:media].each do |m| %>
-                  <% if m.class == Twitter::Media::Video %>
-
-                    <% content_type = get_video_content_type(m) %>
-                    <% url = get_video_url(m) %>
-
+                <% if @tweet.video %>
                     <video controls>
-                      <source src="<%= url %>" type="<%= content_type %>">
+                      <source src="<%= @tweet.video %>" type="<%= get_mime_type @tweet.video %>">
                       Your browser does not support the video tag.
                    </video>
-
-                  <% elsif m.class == Twitter::Media::Photo %>
-                    <% url = get_image_url(m) %>
-                    <img src="<%= url %>" alt="<%= @tweet["title"] %>" />
+                  <% elsif !@tweet.image.empty? %>
+                    <img src="<%= @tweet.image %>" alt="<%= @tweet.title %>" />
                   <% else %>
-                   
                   <% end %>
-                <% end %>
-
                 </div>
-                <p><% @tweet[:content].each do |line| %>
-                <%= line %><br />
-                <% end %></p>
+                <ul>
+                <% @tweet.message.split(",").each do |f| %>
+                  <li><%= clean_string f %></li>
+                <% end %>
+                </ul>
 							</section>
 
 					</div>
@@ -90,7 +78,7 @@
 					<footer id="footer">
 						<section>
 							<h2>Descripción:</h2>
-              <p><%= @tweet[:author_description] %></p>
+              <p><%= @user.description %></p>
 							<ul class="actions">
 								<li><a href="/" class="button">Inicio</a></li>
 							</ul>
@@ -99,9 +87,11 @@
 							<h2>Usuario:</h2>
 							<dl class="alt">
 								<dt>Verficado</dt>
-                <dd>(<%= @tweet[:author_verified]? "Sí":"No" %>)</dd>
+                <dd>(<%= @user[:author_verified]? "Sí":"No" %>)</dd>
+								<dt>Ciudad</dt>
+                <dd><%= @user.location %></dd>
 								<dt>Antiguedad:</dt>
-                <dd><%= @tweet[:author_created_at].day %>/<%= @tweet[:author_created_at].month %>/<%= @tweet[:author_created_at].year %></dd>
+                <dd><%= @user.twitter_created_at %></dd>
 							</dl>
 							<ul class="icons">
 								<li><a href="#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
