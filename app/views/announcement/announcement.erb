@@ -51,12 +51,18 @@
                   </a></dd>
               </dl>
               </div>
-                <h1><%= @tweet[:title] %></h1>
+
+              <div class="main-block">
+
+              <div class="main-titles">
+                <h1><%= @tweet.title %></h1>
                 <p><%= @user.location %></p> 
                 <p><%= @tweet.phone %> (<%= @tweet.price %>)</p>
+              </div>
+
                 <div class="main-media">
                 <% if @tweet.video %>
-                    <video controls>
+                    <video autoplay muted controls>
                       <source src="<%= @tweet.video %>" type="<%= get_mime_type @tweet.video %>">
                       Your browser does not support the video tag.
                    </video>
@@ -65,7 +71,14 @@
                   <% else %>
                   <% end %>
                 </div>
+                </div>
                 <ul>
+
+                <% t = Tweet.new %>
+                <% t.get_by_tid(@tweet.tid).each do |img| %>
+                  <img src="<%= img %>" />
+                <% end %>
+
                 <% @tweet.message.split(",").each do |f| %>
                   <li><%= clean_string f %></li>
                 <% end %>

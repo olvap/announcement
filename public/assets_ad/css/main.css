@@ -18,9 +18,25 @@
 		vertical-align: baseline;
 	}
 
-  .main-media {
+  .main-block {
     width: 100%;
+    display: table;
+  }
+
+  .main-titles {
+     display: table-cell;
+     vertical-align: top;
+  }
+
+
+  .main-media {
+    display: table-cell;
+    height: 250px;
     text-align: center;
+  }
+
+  .main-media img {
+    height: 250px;
   }
 
   video {
@@ -1885,9 +1901,11 @@
 			padding: 0;
 		}
 
+
 	.box {
 		border-color: rgba(255, 255, 255, 0.35);
 	}
+
 
 /* Button */
 

@@ -44,6 +44,14 @@ data for testing client
     @tweets.count
   end
 
+  def get_by_tid tid
+    e = nil
+    @client.status(tid)[:media].each do |element|
+     (e ||=[]).push(element.media_url)
+    end
+    return e
+  end
+
   private
 
   def get_tweets
