@@ -10,6 +10,8 @@ ads name
 =end
 require 'sinatra/activerecord'
 require_relative 'config/settings'
+require 'open-uri'
+
 
 # pull in the helpers and controllers
 Dir.glob('./app/helpers/*.rb').each {|file|  require file}

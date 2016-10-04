@@ -1568,6 +1568,9 @@
 				position: absolute;
 				top: 0;
 				width: 100%;
+
+
+        border:4px #ff0000 solid;
 			}
 
       video {

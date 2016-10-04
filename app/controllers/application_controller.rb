@@ -1,7 +1,7 @@
 # application_controller.rb
 
 class ApplicationController < Sinatra::Base
-  helpers ApplicationHelper, TwitterHelper
+  helpers ApplicationHelper, TwitterHelper, UserHelper
 
   set :public_folder, 'public'
 

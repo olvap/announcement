@@ -31,8 +31,8 @@ class AdminController < ApplicationController
 
       @u = User.new
       @u.uid = t[:author_id]
-      @u.name = t[:username]
-      @u.nickname = t[:author_name]
+      @u.nickname = t[:username]
+      @u.name = t[:author_name]
       @u.location = t[:author_location]
       @u.image_url = t[:author_pic]
       @u.url = t[:author_url]

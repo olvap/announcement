@@ -50,31 +50,29 @@
 
           <% @ads.each do |t| %>
             <article class="thumb">
-              <% if !t.video.empty? %>
-                <a href="/t/<%= t.tid %>" class="image">
-                  <% # content_type = get_video_content_type(media) %>
-
-                   <video controls autoplay muted loop>
-                      <source src="<%= t.video %>" type="<%= content_type %>">
-                      Your browser does not support the video tag.
-                   </video>
-                <% elsif !t.image.empty? %>
-                   <% # url = get_image_url(media) %>
-                   <img src="<%= t.image %>" alt="<%= t.title %>" />
+              <% if t.video %>
+              <a href="/t/<%= t.tid %>" class="image">
+                 <video controls autoplay muted loop>
+                    <source src="<%= t.video %>" type="<%= get_mime_type t.video %>">
+                    Your browser does not support the video tag.
+                </video>
+              </a>
+              <% elsif !t.image.empty? %>
+              <a href="/t/<%= t.tid %>" class="image">
+                <img src="<%= t.image %>" alt="<%= t.title %>" />
+              </a>
                  <% else %>
                    <img src="images/empty.png" alt="<%= t.title %>" />
                  <% end %>
-                </a>
 
             <span class="information">
               <h3><%= t.price %></h3>
-                <p class="location"><%= t.author_location %></p>
-                <a href="/t/<%= t.id %>">
+                <p class="location"><%= get_user_location t.uid %></p>
+                <a href="/t/<%= t.tid %>">
                 <h2><%= t.title %></h2></a>
-                <p><a 
-                   href="<%= t.author_url%>" 
+                <p><a href="<%= get_user_url t.uid %>" 
                    onclick="window.open(this.href); return false;">
-                   <%= t.username %></a> 
+                   <%= get_username t.uid %></a> 
                 </p>
             </span>
             </article>

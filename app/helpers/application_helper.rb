@@ -14,5 +14,10 @@ module ApplicationHelper
   def get_image_url media
     media.attrs[:media_url]
   end
+
+  def get_mime_type url
+    media = open url
+    media.content_type
+  end
 end
 
